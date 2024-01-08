@@ -8,11 +8,11 @@ hero:
   tagline: 中文橋牌資源網站
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 快速入門
+      link: /game-rules
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 制度書
+      link: /system
 
 features:
   - title: 橋牌怎麼玩？
