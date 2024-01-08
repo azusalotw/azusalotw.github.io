@@ -2,14 +2,13 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Azusa's Page",
-  description: "A VitePress Site",
+  title: "橋牌",
+  description: "一起好好學橋牌",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
-      { text: '學橋牌', link: '/learn-bridge'}
     ],
 
     sidebar: [

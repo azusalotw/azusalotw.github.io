@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "Azusa's Page"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "橋牌"
+  text: "一起好好學橋牌"
+  tagline: 中文橋牌資源網站
   actions:
     - theme: brand
       text: Markdown Examples
