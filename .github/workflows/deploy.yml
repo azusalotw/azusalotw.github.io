@@ -3,7 +3,7 @@ name: Deploy Vite Project to GitHub Pages
 on:
   push:
     branches:
-      - main # 這裡要對應你的 GitHub 分支，例如 main 或 master
+      - master # 這裡要對應你的 GitHub 分支，例如 main 或 master
 
 permissions:
   contents: write
