@@ -1,7 +1,7 @@
 export default {
   title: '我的文檔',
   description: 'VitePress 文檔網站',
-  base: '/docs/', // 讓 GitHub Pages 正確解析 VitePress
+  base: '/',
   themeConfig: {
     nav: [
       { text: '首頁', link: '/' },
