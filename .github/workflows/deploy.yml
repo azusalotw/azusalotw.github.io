@@ -51,10 +51,10 @@ jobs:
           cp -r docs/.vitepress/dist/* dist/
 
       # 安裝 Vue 3 應用程式的相依套件
-      - name: Install Vue 3 Dependencies
-        run: |
-          cd app
-          bun install
+      # - name: Install Vue 3 Dependencies
+      #   run: |
+      #     cd app
+      #     bun install
 
       # Build Vue 3 Application
       - name: Build Vue 3 App
