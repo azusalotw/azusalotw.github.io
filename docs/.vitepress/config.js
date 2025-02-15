@@ -5,13 +5,7 @@ export default {
   themeConfig: {
     nav: [
       { text: '首頁', link: '/' },
-      { text: '指南', link: '/guide/' },
+      { text: '專案', link: '/app/' },
     ],
-    sidebar: {
-      '/guide/': [
-        { text: '介紹', link: '/guide/' },
-        { text: '快速開始', link: '/guide/quickstart' },
-      ],
-    },
   },
 };
