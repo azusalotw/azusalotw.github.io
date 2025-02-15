@@ -52,7 +52,8 @@ jobs:
 
       # Build Vue 3 Application
       - name: Build with Vite
-        run: bun run build --prefix app
+        working-directory: app
+        run: bun run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
