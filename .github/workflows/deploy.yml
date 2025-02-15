@@ -50,10 +50,17 @@ jobs:
           mkdir -p dist
           cp -r docs/.vitepress/dist/* dist/
 
+      # 安裝 Vue 3 應用程式的相依套件
+      - name: Install Vue 3 Dependencies
+        run: |
+          cd app
+          bun install
+
       # Build Vue 3 Application
-      - name: Build with Vite
-        working-directory: app
-        run: bun run build
+      - name: Build Vue 3 App
+        run: |
+          cd app
+          bun run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
