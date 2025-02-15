@@ -1,20 +1,14 @@
 {
-  "name": "my-portfolio",
+  "name": "root-project",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "vue": "^3.5.13"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
-    "unocss": "^65.5.0",
-    "vite": "^6.1.0",
-    "vitepress": "^1.6.3"
+    "vitepress": "^1.0.0",
+    "bun": "^1.0.0"
   }
 }
