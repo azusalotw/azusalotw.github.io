@@ -1,11 +1,22 @@
 {
-  "dependencies": {},
-  "devDependencies": {
-    "vitepress": "^1.6.3"
-  },
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "typescript": "~5.7.2",
+    "unocss": "^65.4.3",
+    "vite": "^6.1.0",
+    "vue-tsc": "^2.2.0"
   }
 }
