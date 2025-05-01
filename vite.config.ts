@@ -5,13 +5,11 @@ import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    UnoCSS(),
-  ],
+  plugins: [vue(), UnoCSS()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
+      '@': resolve(__dirname, './src'),
     },
   },
+  base: './', // This ensures assets are loaded correctly on GitHub Pages
 })

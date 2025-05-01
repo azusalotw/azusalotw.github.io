@@ -1,79 +1,50 @@
-# Sample workflow for building and deploying a VitePress site to GitHub Pages
-#
-name: Deploy Vite site to Pages
+name: Deploy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the `main` branch. Change this to `master` if you're
-  # using the `master` branch as the default branch.
   push:
-    branches: [main]
+    branches:
+      - main  # Set a branch to deploy from
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Allow one concurrent deployment
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  # Build job
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Not needed if lastUpdated is not enabled
-      - uses: oven-sh/setup-bun@v2
+        uses: actions/checkout@v3
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
 
       - name: Install dependencies
         run: bun install
 
-      # Build VitePress Documentation
-      #- name: Build VitePress Docs
-      #  run: bunx vitepress build docs
+      - name: Build
+        run: bun run build
 
-      # Move VitePress output to root dist/
-      # - name: Move VitePress to Root
-      #   run: |
-      #     mkdir -p dist
-      #     cp -r docs/.vitepress/dist/* dist/
-
-      # 安裝 Vue 3 應用程式的相依套件
-      - name: Install Vue 3 Dependencies
-        run: |
-          bun install
-
-      # Build Vue 3 Application
-      - name: Build Vue 3 App
-        run: |
-          bun run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
-          path: dist
+          path: './dist'
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1

@@ -1,129 +1,123 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import SectionTitle from '@/components/common/SectionTitle.vue'
-import ProjectCard from '@/components/portfolio/ProjectCard.vue'
-import type { Project } from '@/components/portfolio/ProjectCard.vue'
+import PortfolioCard from '@/components/PortfolioCard.vue'
 
-// Projects data
-const projects: Project[] = [
+const projects = ref([
   {
     id: 1,
-    title: 'E-commerce Platform',
-    description: 'A modern e-commerce platform with advanced filtering and cart functionality.',
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg',
-    category: 'Web Development',
-    tags: ['Vue.js', 'Node.js', 'MongoDB'],
-    url: '#'
+    title: 'E-commerce Website',
+    description: 'A fully responsive online store built with Vue and Node.js. Features include product filtering, user authentication, cart functionality, and payment processing.',
+    image: 'https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg',
+    tags: ['Vue', 'Node.js', 'Express', 'MongoDB'],
+    category: 'Web Application',
+    link: '#'
   },
   {
     id: 2,
-    title: 'Travel Blog',
-    description: 'Responsive travel blog with dynamic content and image galleries.',
-    image: 'https://images.pexels.com/photos/7625640/pexels-photo-7625640.jpeg',
-    category: 'Web Design',
-    tags: ['Vue.js', 'TailwindCSS', 'Firebase'],
-    url: '#'
+    title: 'Weather Dashboard',
+    description: 'Real-time weather application with location tracking. Users can search for weather by city name or use their current location to get up-to-date weather information.',
+    image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg',
+    tags: ['Vue', 'API Integration', 'Geolocation'],
+    category: 'Web Application',
+    link: '#'
   },
   {
     id: 3,
-    title: 'Task Management App',
-    description: 'Productivity application for managing tasks and collaborating with teams.',
-    image: 'https://images.pexels.com/photos/6476260/pexels-photo-6476260.jpeg',
-    category: 'Mobile App',
-    tags: ['React Native', 'Redux', 'Firebase'],
-    url: '#'
+    title: 'Portfolio Website',
+    description: 'A modern, responsive portfolio website built with Vue and UnoCSS. Features smooth transitions, dark mode toggle, and fully responsive design.',
+    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg',
+    tags: ['Vue', 'UnoCSS', 'Responsive Design'],
+    category: 'Website',
+    link: '#'
   },
   {
     id: 4,
-    title: 'Financial Dashboard',
-    description: 'Interactive dashboard with real-time data visualization and reporting.',
-    image: 'https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg',
-    category: 'Web Development',
-    tags: ['React.js', 'D3.js', 'Node.js'],
-    url: '#'
+    title: 'Task Management App',
+    description: 'A productivity application for managing tasks and projects. Features include drag and drop functionality, task prioritization, and due date reminders.',
+    image: 'https://images.pexels.com/photos/6956/snow-trees-forest-winter.jpg',
+    tags: ['Vue', 'Vuex', 'Firebase'],
+    category: 'Web Application',
+    link: '#'
   },
   {
     id: 5,
-    title: 'Restaurant Website',
-    description: 'Elegant website for a high-end restaurant with online reservation system.',
-    image: 'https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg',
-    category: 'Web Design',
-    tags: ['WordPress', 'Custom Theme', 'PHP'],
-    url: '#'
+    title: 'Restaurant Landing Page',
+    description: 'A modern landing page for a restaurant with menu display, reservation form, and location map integration.',
+    image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    category: 'Website',
+    link: '#'
   },
   {
     id: 6,
-    title: 'Fitness Tracking App',
-    description: 'Mobile application for tracking workouts, nutrition, and fitness progress.',
-    image: 'https://images.pexels.com/photos/841131/pexels-photo-841131.jpeg',
-    category: 'Mobile App',
-    tags: ['React Native', 'GraphQL', 'Firebase'],
-    url: '#'
+    title: 'Music Streaming App',
+    description: 'A web-based music streaming application with playlist creation, music discovery, and social sharing features.',
+    image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg',
+    tags: ['Vue', 'Node.js', 'MongoDB', 'WebAudio API'],
+    category: 'Web Application',
+    link: '#'
   }
-]
+])
 
-// Categories
-const categories = ['All', 'Web Development', 'Web Design', 'Mobile App']
+const categories = computed(() => {
+  const allCategories = projects.value.map(project => project.category)
+  return ['All', ...new Set(allCategories)]
+})
+
 const selectedCategory = ref('All')
 
-// Filtered projects
 const filteredProjects = computed(() => {
   if (selectedCategory.value === 'All') {
-    return projects
+    return projects.value
   }
-  return projects.filter(project => project.category === selectedCategory.value)
+  return projects.value.filter(project => project.category === selectedCategory.value)
 })
 </script>
 
 <template>
   <div>
-    <!-- Portfolio Hero -->
-    <section class="py-32 pt-40 relative">
-      <div class="absolute -z-10 inset-0 bg-gradient-to-br from-primary-50 to-white dark:from-primary-900/20 dark:to-gray-900"></div>
-      <div class="container text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-          My Portfolio
-        </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Explore a selection of my recent work across various domains and technologies.
+    <!-- Header -->
+    <section class="py-24 bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
+      <div class="container">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">My Portfolio</h1>
+        <p class="text-xl opacity-90 max-w-2xl">
+          A showcase of my web development projects. Each project represents a unique challenge and solution.
         </p>
       </div>
     </section>
     
-    <!-- Portfolio Filters -->
-    <section class="py-8">
+    <!-- Portfolio Grid -->
+    <section class="section">
       <div class="container">
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-          <button 
-            v-for="category in categories" 
-            :key="category"
-            @click="selectedCategory = category"
-            class="px-4 py-2 rounded-full transition-all duration-200"
-            :class="[
-              selectedCategory === category 
-                ? 'bg-primary-500 text-white' 
-                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-            ]"
-          >
-            {{ category }}
-          </button>
+        <!-- Category Filter -->
+        <div class="mb-12 flex justify-center">
+          <div class="inline-flex flex-wrap justify-center gap-2 p-1 bg-gray-100 dark:bg-gray-800 rounded-lg">
+            <button 
+              v-for="category in categories" 
+              :key="category"
+              class="px-4 py-2 rounded-lg transition-colors"
+              :class="selectedCategory === category ? 
+                'bg-white dark:bg-gray-700 shadow-sm text-primary-600 dark:text-primary-400' : 
+                'text-gray-700 dark:text-gray-300 hover:bg-white/50 dark:hover:bg-gray-700/50'"
+              @click="selectedCategory = category"
+            >
+              {{ category }}
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
-    
-    <!-- Projects Grid -->
-    <section class="py-12">
-      <div class="container">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ProjectCard 
+        
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <PortfolioCard 
             v-for="project in filteredProjects" 
-            :key="project.id"
-            :project="project"
+            :key="project.id" 
+            :project="project" 
           />
         </div>
         
+        <!-- No Results -->
         <div v-if="filteredProjects.length === 0" class="text-center py-12">
-          <p class="text-lg text-gray-600 dark:text-gray-400">
+          <p class="text-xl text-gray-600 dark:text-gray-400">
             No projects found in this category.
           </p>
         </div>
@@ -131,16 +125,14 @@ const filteredProjects = computed(() => {
     </section>
     
     <!-- Call to Action -->
-    <section class="py-20 bg-gray-100 dark:bg-gray-800">
+    <section class="section bg-gray-50 dark:bg-gray-900">
       <div class="container text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-          Let's Work Together
-        </h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-          Interested in collaborating on a project? I'm always open to discussing new opportunities and challenges.
+        <h2 class="text-3xl font-bold mb-6">Interested in working together?</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+          I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
         </p>
-        <router-link to="/contact" class="btn-primary text-lg px-8 py-3">
-          Get in Touch
+        <router-link to="/contact" class="btn-primary">
+          Get In Touch
         </router-link>
       </div>
     </section>

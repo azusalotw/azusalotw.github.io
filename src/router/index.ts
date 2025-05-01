@@ -1,41 +1,56 @@
 import { RouteRecordRaw } from 'vue-router'
 import Home from '@/views/Home.vue'
+import About from '@/views/About.vue'
+import Portfolio from '@/views/Portfolio.vue'
+import Skills from '@/views/Skills.vue'
+import Contact from '@/views/Contact.vue'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
     component: Home,
+    meta: {
+      title: 'Home',
+      icon: 'i-mdi-home'
+    }
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import('@/views/About.vue'),
+    component: About,
+    meta: {
+      title: 'About Me',
+      icon: 'i-mdi-account'
+    }
   },
   {
     path: '/portfolio',
     name: 'Portfolio',
-    component: () => import('@/views/Portfolio.vue'),
+    component: Portfolio,
+    meta: {
+      title: 'Portfolio',
+      icon: 'i-mdi-briefcase'
+    }
   },
   {
-    path: '/blog',
-    name: 'Blog',
-    component: () => import('@/views/Blog.vue'),
-  },
-  {
-    path: '/blog/:id',
-    name: 'BlogPost',
-    component: () => import('@/views/BlogPost.vue'),
+    path: '/skills',
+    name: 'Skills',
+    component: Skills,
+    meta: {
+      title: 'Skills',
+      icon: 'i-mdi-code-tags'
+    }
   },
   {
     path: '/contact',
     name: 'Contact',
-    component: () => import('@/views/Contact.vue'),
-  },
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/',
-  },
+    component: Contact,
+    meta: {
+      title: 'Contact',
+      icon: 'i-mdi-email'
+    }
+  }
 ]
 
 export default routes

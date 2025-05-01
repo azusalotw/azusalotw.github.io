@@ -1,65 +1,75 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import Topbar from '@/components/layout/Topbar.vue'
+import { ref, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import Navbar from '@/components/layout/Navbar.vue'
 import Sidebar from '@/components/layout/Sidebar.vue'
+import Footer from '@/components/layout/Footer.vue'
 
-const showSidebar = ref(false)
+const isSidebarOpen = ref(false)
+const isDarkMode = ref(false)
+const route = useRoute()
 
+// Toggle sidebar
 const toggleSidebar = () => {
-  showSidebar.value = !showSidebar.value
+  isSidebarOpen.value = !isSidebarOpen.value
 }
 
-const closeSidebar = () => {
-  showSidebar.value = false
+// Close sidebar when route changes
+watch(() => route.path, () => {
+  isSidebarOpen.value = false
+})
+
+// Check system preference for dark mode
+onMounted(() => {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    isDarkMode.value = true
+    document.documentElement.classList.add('dark')
+  }
+  
+  // Listen for changes in system preference
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    isDarkMode.value = e.matches
+    toggleDarkMode()
+  })
+})
+
+// Toggle dark mode
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value
+  if (isDarkMode.value) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
 }
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-    <Topbar @toggle-sidebar="toggleSidebar" />
-    <Sidebar :is-open="showSidebar" @close="closeSidebar" />
+  <div class="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <Navbar 
+      :is-sidebar-open="isSidebarOpen" 
+      :is-dark-mode="isDarkMode"
+      @toggle-sidebar="toggleSidebar" 
+      @toggle-dark-mode="toggleDarkMode" 
+    />
     
-    <main>
-      <router-view v-slot="{ Component }">
-        <transition 
-          name="page" 
-          mode="out-in"
-          @before-leave="closeSidebar"
-        >
-          <component :is="Component" />
-        </transition>
-      </router-view>
-    </main>
+    <div class="flex flex-1">
+      <Sidebar :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
+      
+      <main class="flex-1">
+        <router-view v-slot="{ Component }">
+          <transition 
+            name="page" 
+            mode="out-in"
+            appear
+          >
+            <component :is="Component" />
+          </transition>
+        </router-view>
+      </main>
+    </div>
     
-    <footer class="py-8 mt-20 border-t border-gray-200 dark:border-gray-800">
-      <div class="container">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <p class="text-gray-600 dark:text-gray-400">
-            &copy; {{ new Date().getFullYear() }} Your Name. All rights reserved.
-          </p>
-          <div class="mt-4 md:mt-0 flex space-x-4">
-            <a 
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-              aria-label="GitHub"
-            >
-              <div class="i-carbon-logo-github text-xl"></div>
-            </a>
-            <a 
-              href="https://linkedin.com/in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <div class="i-carbon-logo-linkedin text-xl"></div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <Footer />
   </div>
 </template>
 
@@ -77,5 +87,18 @@ const closeSidebar = () => {
 .page-leave-to {
   opacity: 0;
   transform: translateY(-20px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
 }
 </style>

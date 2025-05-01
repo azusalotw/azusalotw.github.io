@@ -1,86 +1,84 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { useTheme } from '@/composables/useTheme'
-import { useRouter } from 'vue-router'
-
-const { isDark, toggleTheme } = useTheme()
-const router = useRouter()
+import { useRoute } from 'vue-router'
 
 defineProps<{
   isOpen: boolean
 }>()
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'close'): void
 }>()
 
-const navItems = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Portfolio', path: '/portfolio' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Contact', path: '/contact' },
-]
-
-// Close sidebar when route changes
-watch(() => router.currentRoute.value, () => {
-  emit('close')
-})
+const route = useRoute()
 </script>
 
 <template>
-  <div 
-    class="fixed inset-0 z-50 md:hidden"
-    v-if="isOpen"
-  >
+  <div>
     <!-- Backdrop -->
-    <div
-      class="absolute inset-0 bg-gray-900/50 backdrop-blur-sm transition-all duration-300"
+    <div 
+      v-if="isOpen" 
+      class="fixed inset-0 bg-gray-900/60 z-40 md:hidden transition-opacity duration-300"
       @click="$emit('close')"
     ></div>
     
-    <!-- Sidebar content -->
-    <div class="absolute right-0 top-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl transform transition-all duration-300">
-      <div class="p-4 flex justify-between items-center border-b border-gray-200 dark:border-gray-800">
-        <h2 class="font-semibold text-gray-900 dark:text-white">Menu</h2>
-        <button 
-          @click="$emit('close')" 
-          class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
-          aria-label="Close menu"
-        >
-          <div class="i-carbon-close text-gray-700 dark:text-gray-300"></div>
-        </button>
-      </div>
-      
-      <nav class="p-4">
-        <ul class="space-y-2">
-          <li v-for="item in navItems" :key="item.name">
-            <router-link 
-              :to="item.path" 
-              class="block px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
-              active-class="bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 font-medium"
-            >
-              {{ item.name }}
-            </router-link>
-          </li>
-        </ul>
-      </nav>
-      
-      <div class="p-4 mt-auto border-t border-gray-200 dark:border-gray-800">
-        <div class="flex items-center justify-between">
-          <span class="text-sm text-gray-600 dark:text-gray-400">
-            Theme
-          </span>
+    <!-- Sidebar -->
+    <aside 
+      class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 shadow-lg z-50 transition-transform duration-300 transform md:translate-x-0 md:static md:h-auto md:shadow-none"
+      :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
+    >
+      <div class="flex flex-col h-full p-4">
+        <!-- Mobile: Close button -->
+        <div class="flex justify-end md:hidden">
           <button 
-            @click="toggleTheme" 
-            class="rounded-full p-2 hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
-            :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+            class="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            @click="$emit('close')"
+            aria-label="Close menu"
           >
-            <div v-if="isDark" class="i-carbon-sun text-yellow-400"></div>
-            <div v-else class="i-carbon-moon text-gray-700"></div>
+            <div class="i-mdi-close text-lg"></div>
           </button>
         </div>
+        
+        <!-- User avatar -->
+        <div class="flex flex-col items-center py-8 border-b border-gray-200 dark:border-gray-700">
+          <div class="w-24 h-24 rounded-full bg-primary-100 dark:bg-primary-900 mb-4 overflow-hidden">
+            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" alt="Profile" class="w-full h-full object-cover" />
+          </div>
+          <h2 class="text-xl font-bold">Your Name</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Web Developer</p>
+        </div>
+        
+        <!-- Nav links -->
+        <nav class="flex-1 py-6">
+          <ul class="space-y-2">
+            <li v-for="item in $router.options.routes" :key="item.path">
+              <router-link 
+                :to="item.path" 
+                class="flex items-center px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                :class="{ 'bg-primary-50 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400': route.path === item.path }"
+                @click="$emit('close')"
+              >
+                <div :class="item.meta?.icon" class="mr-3"></div>
+                {{ item.meta?.title }}
+              </router-link>
+            </li>
+          </ul>
+        </nav>
+        
+        <!-- Social links -->
+        <div class="py-6 border-t border-gray-200 dark:border-gray-700">
+          <div class="flex justify-center space-x-4">
+            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
+              <div class="i-mdi-github text-lg"></div>
+            </a>
+            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
+              <div class="i-mdi-linkedin text-lg"></div>
+            </a>
+            <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
+              <div class="i-mdi-twitter text-lg"></div>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+    </aside>
   </div>
 </template>

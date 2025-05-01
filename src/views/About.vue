@@ -1,341 +1,191 @@
-<script setup lang="ts">
-import SectionTitle from '@/components/common/SectionTitle.vue';
-import SkillCard from '@/components/about/SkillCard.vue';
-
-// Skills data
-const skills = [
-  {
-    title: 'Frontend Development',
-    icon: 'i-carbon-application-web',
-    skills: [
-      'Vue.js / Nuxt.js',
-      'React / Next.js',
-      'TypeScript',
-      'HTML5 / CSS3',
-      'JavaScript ES6+',
-      'TailwindCSS / UnoCSS',
-    ],
-  },
-  {
-    title: 'Backend Development',
-    icon: 'i-carbon-server',
-    skills: [
-      'Node.js / Express',
-      'RESTful APIs',
-      'GraphQL',
-      'MongoDB',
-      'PostgreSQL',
-      'Firebase',
-    ],
-  },
-  {
-    title: 'Design',
-    icon: 'i-carbon-paint-brush',
-    skills: [
-      'UI/UX Design',
-      'Responsive Design',
-      'Figma / Adobe XD',
-      'Wireframing',
-      'Prototyping',
-      'Design Systems',
-    ],
-  },
-  {
-    title: 'Tools & Others',
-    icon: 'i-carbon-tools',
-    skills: [
-      'Git / GitHub',
-      'Docker',
-      'CI/CD',
-      'Jest / Vitest',
-      'Performance Optimization',
-      'SEO Fundamentals',
-    ],
-  },
-];
-
-// Experience data
-const experiences = [
-  {
-    title: 'Senior Frontend Developer',
-    company: 'Tech Solutions Inc.',
-    period: '2021 - Present',
-    description:
-      'Lead frontend development for enterprise clients, implementing modern architecture and best practices.',
-  },
-  {
-    title: 'Web Developer',
-    company: 'Digital Agency',
-    period: '2018 - 2021',
-    description:
-      'Developed responsive websites and web applications for clients across various industries.',
-  },
-  {
-    title: 'Junior Developer',
-    company: 'Startup Studio',
-    period: '2016 - 2018',
-    description:
-      'Assisted in the development of web and mobile applications using various frontend technologies.',
-  },
-];
-
-// Education data
-const education = [
-  {
-    degree: 'Master of Computer Science',
-    institution: 'Tech University',
-    period: '2014 - 2016',
-    description: 'Specialized in web technologies and user interface design.',
-  },
-  {
-    degree: 'Bachelor of Computer Science',
-    institution: 'State University',
-    period: '2010 - 2014',
-    description:
-      'Focused on software engineering and development fundamentals.',
-  },
-];
-</script>
-
 <template>
   <div>
-    <!-- About Hero -->
-    <section class="py-32 pt-40 relative">
-      <div
-        class="absolute -z-10 inset-0 bg-gradient-to-br from-primary-50 to-white dark:from-primary-900/20 dark:to-gray-900"
-      ></div>
+    <!-- Header -->
+    <section class="py-24 bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
       <div class="container">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1
-              class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
-            >
-              About Me
-            </h1>
-            <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
-              I'm a passionate web developer with a focus on creating beautiful,
-              functional, and user-friendly websites.
-            </p>
-            <p class="text-gray-600 dark:text-gray-400 mb-6">
-              With over 5 years of experience in the industry, I've had the
-              privilege of working with various clients from startups to
-              established businesses. My goal is always to deliver high-quality
-              solutions that not only meet the client's requirements but also
-              exceed their expectations.
-            </p>
-            <p class="text-gray-600 dark:text-gray-400">
-              I believe that the best digital products come from a combination
-              of technical excellence, thoughtful design, and a deep
-              understanding of the user's needs.
-            </p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
+        <p class="text-xl opacity-90 max-w-2xl">
+          Get to know more about me, my background, and what drives my passion for web development.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Main content -->
+    <section class="section">
+      <div class="container">
+        <div class="card max-w-4xl mx-auto">
+          <div class="flex flex-col md:flex-row gap-8">
+            <!-- Image -->
+            <div class="w-full md:w-1/3">
+              <div class="aspect-[3/4] rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700">
+                <img 
+                  src="https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg"
+                  alt="Profile Photo"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            
+            <!-- Bio -->
+            <div class="w-full md:w-2/3">
+              <h2 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">My Story</h2>
+              
+              <p class="mb-4 text-gray-700 dark:text-gray-300">
+                Hello! I'm Your Name, a web developer based in [Your Location]. With [X] years of experience in
+                web development, I've worked on various projects ranging from small business websites to complex
+                web applications.
+              </p>
+              
+              <p class="mb-4 text-gray-700 dark:text-gray-300">
+                My journey in web development began when I was studying [Your Background]. I was fascinated by
+                the ability to create something from scratch and see it come to life on the internet, accessible
+                to people around the world.
+              </p>
+              
+              <p class="mb-4 text-gray-700 dark:text-gray-300">
+                What sets me apart is my attention to detail and my commitment to creating websites that are not just
+                visually appealing, but also functional, accessible, and optimized for performance.
+              </p>
+              
+              <h3 class="text-xl font-bold mt-8 mb-4 text-primary-600 dark:text-primary-400">Education & Training</h3>
+              
+              <ul class="space-y-4">
+                <li class="flex gap-4">
+                  <div class="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center shrink-0">
+                    <span class="text-primary-600 dark:text-primary-400 font-bold">1</span>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Bachelor's Degree in Computer Science</h4>
+                    <p class="text-gray-600 dark:text-gray-400">University Name, 2017-2021</p>
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <div class="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center shrink-0">
+                    <span class="text-primary-600 dark:text-primary-400 font-bold">2</span>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">Frontend Development Certification</h4>
+                    <p class="text-gray-600 dark:text-gray-400">Platform Name, 2022</p>
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <div class="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center shrink-0">
+                    <span class="text-primary-600 dark:text-primary-400 font-bold">3</span>
+                  </div>
+                  <div>
+                    <h4 class="font-bold">UI/UX Design Course</h4>
+                    <p class="text-gray-600 dark:text-gray-400">Design School, 2023</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div class="flex justify-center">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Experience -->
+    <section class="section bg-gray-50 dark:bg-gray-900">
+      <div class="container">
+        <h2 class="text-3xl font-bold mb-12 text-center">Work Experience</h2>
+        
+        <div class="max-w-3xl mx-auto">
+          <div class="relative border-l-2 border-primary-200 dark:border-primary-800 pl-8 pb-8">
+            <!-- Experience 1 -->
+            <div class="mb-12 relative">
+              <div class="absolute -left-10 w-6 h-6 rounded-full bg-primary-600 dark:bg-primary-500 border-4 border-white dark:border-gray-900"></div>
+              
+              <div class="card">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-4">
+                  <h3 class="text-xl font-bold">Senior Frontend Developer</h3>
+                  <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">
+                    2022 - Present
+                  </span>
+                </div>
+                <h4 class="text-lg text-gray-600 dark:text-gray-400 mb-4">Company Name</h4>
+                <p class="text-gray-700 dark:text-gray-300">
+                  Led the frontend development of the company's flagship product, resulting in a 40% increase in user engagement.
+                  Implemented responsive designs, optimized performance, and mentored junior developers.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Experience 2 -->
+            <div class="mb-12 relative">
+              <div class="absolute -left-10 w-6 h-6 rounded-full bg-primary-600 dark:bg-primary-500 border-4 border-white dark:border-gray-900"></div>
+              
+              <div class="card">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-4">
+                  <h3 class="text-xl font-bold">Frontend Developer</h3>
+                  <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">
+                    2020 - 2022
+                  </span>
+                </div>
+                <h4 class="text-lg text-gray-600 dark:text-gray-400 mb-4">Previous Company</h4>
+                <p class="text-gray-700 dark:text-gray-300">
+                  Developed and maintained multiple client websites, ensuring cross-browser compatibility and mobile responsiveness.
+                  Collaborated with designers to implement UI/UX improvements that increased conversion rates by 25%.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Experience 3 -->
             <div class="relative">
-              <div
-                class="absolute -inset-1 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl blur opacity-70"
-              ></div>
-              <img
-                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
-                alt="Professional portrait"
-                class="relative rounded-2xl border-4 border-white dark:border-gray-800 shadow-xl w-full max-w-md"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="py-20">
-      <div class="container">
-        <SectionTitle
-          title="My Skills"
-          subtitle="Areas of expertise and technologies I work with"
-        />
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <SkillCard
-            v-for="skill in skills"
-            :key="skill.title"
-            :title="skill.title"
-            :skills="skill.skills"
-            :icon="skill.icon"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience & Education -->
-    <section class="py-20 bg-gray-100 dark:bg-gray-800">
-      <div class="container">
-        <div class="grid md:grid-cols-2 gap-12">
-          <!-- Experience -->
-          <div>
-            <h2
-              class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8"
-            >
-              Professional Experience
-            </h2>
-
-            <div
-              class="relative border-l-2 border-primary-300 dark:border-primary-700 pl-6 space-y-12"
-            >
-              <div
-                v-for="(exp, index) in experiences"
-                :key="index"
-                class="relative"
-              >
-                <div
-                  class="absolute -left-9 w-4 h-4 rounded-full bg-primary-500 border-4 border-white dark:border-gray-800"
-                ></div>
-                <div>
-                  <span
-                    class="inline-block text-sm font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400 px-3 py-1 rounded-full mb-2"
-                  >
-                    {{ exp.period }}
+              <div class="absolute -left-10 w-6 h-6 rounded-full bg-primary-600 dark:bg-primary-500 border-4 border-white dark:border-gray-900"></div>
+              
+              <div class="card">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-4">
+                  <h3 class="text-xl font-bold">Web Development Intern</h3>
+                  <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">
+                    2019 - 2020
                   </span>
-                  <h3
-                    class="text-xl font-semibold text-gray-900 dark:text-white"
-                  >
-                    {{ exp.title }}
-                  </h3>
-                  <p class="text-primary-600 dark:text-primary-400 mb-2">
-                    {{ exp.company }}
-                  </p>
-                  <p class="text-gray-600 dark:text-gray-400">
-                    {{ exp.description }}
-                  </p>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Education -->
-          <div>
-            <h2
-              class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8"
-            >
-              Education
-            </h2>
-
-            <div
-              class="relative border-l-2 border-secondary-300 dark:border-secondary-700 pl-6 space-y-12"
-            >
-              <div
-                v-for="(edu, index) in education"
-                :key="index"
-                class="relative"
-              >
-                <div
-                  class="absolute -left-9 w-4 h-4 rounded-full bg-secondary-500 border-4 border-white dark:border-gray-800"
-                ></div>
-                <div>
-                  <span
-                    class="inline-block text-sm font-medium bg-secondary-100 dark:bg-secondary-900/30 text-secondary-700 dark:text-secondary-400 px-3 py-1 rounded-full mb-2"
-                  >
-                    {{ edu.period }}
-                  </span>
-                  <h3
-                    class="text-xl font-semibold text-gray-900 dark:text-white"
-                  >
-                    {{ edu.degree }}
-                  </h3>
-                  <p class="text-secondary-600 dark:text-secondary-400 mb-2">
-                    {{ edu.institution }}
-                  </p>
-                  <p class="text-gray-600 dark:text-gray-400">
-                    {{ edu.description }}
-                  </p>
-                </div>
+                <h4 class="text-lg text-gray-600 dark:text-gray-400 mb-4">Internship Company</h4>
+                <p class="text-gray-700 dark:text-gray-300">
+                  Assisted in the development of client websites and gained hands-on experience with HTML, CSS, and JavaScript.
+                  Worked closely with senior developers to learn best practices and improve coding skills.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Testimonials (Optional) -->
-    <section class="py-20">
+    
+    <!-- Personal Interests -->
+    <section class="section">
       <div class="container">
-        <SectionTitle
-          title="What People Say"
-          subtitle="Testimonials from clients I've worked with"
-        />
-
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="card p-6">
-            <div class="flex items-center mb-4">
-              <div class="text-yellow-400 flex">
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-              </div>
+        <h2 class="text-3xl font-bold mb-12 text-center">Personal Interests</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card text-center p-8 hover:shadow-md transition-shadow">
+            <div class="w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mx-auto mb-6">
+              <span class="i-mdi-code-tags text-primary-600 dark:text-primary-400 text-2xl"></span>
             </div>
-            <p class="text-gray-600 dark:text-gray-400 mb-4 italic">
-              "Working with this developer was an absolute pleasure. They
-              delivered our website on time and exceeded our expectations in
-              terms of design and functionality."
+            <h3 class="text-xl font-bold mb-4">Coding</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              I love exploring new technologies and frameworks, building side projects, and contributing to open-source.
             </p>
-            <div>
-              <h4 class="font-semibold text-gray-900 dark:text-white">
-                John Smith
-              </h4>
-              <p class="text-sm text-gray-500 dark:text-gray-500">
-                CEO, Tech Startup
-              </p>
-            </div>
           </div>
-
-          <div class="card p-6">
-            <div class="flex items-center mb-4">
-              <div class="text-yellow-400 flex">
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-              </div>
+          
+          <div class="card text-center p-8 hover:shadow-md transition-shadow">
+            <div class="w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mx-auto mb-6">
+              <span class="i-mdi-camera text-primary-600 dark:text-primary-400 text-2xl"></span>
             </div>
-            <p class="text-gray-600 dark:text-gray-400 mb-4 italic">
-              "Their attention to detail and technical expertise helped us
-              transform our outdated website into a modern, user-friendly
-              platform that has significantly increased our conversions."
+            <h3 class="text-xl font-bold mb-4">Photography</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Capturing moments and scenes through photography helps me see the world from different perspectives.
             </p>
-            <div>
-              <h4 class="font-semibold text-gray-900 dark:text-white">
-                Sarah Johnson
-              </h4>
-              <p class="text-sm text-gray-500 dark:text-gray-500">
-                Marketing Director, E-commerce
-              </p>
-            </div>
           </div>
-
-          <div class="card p-6">
-            <div class="flex items-center mb-4">
-              <div class="text-yellow-400 flex">
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-                <span class="i-carbon-star-filled"></span>
-              </div>
+          
+          <div class="card text-center p-8 hover:shadow-md transition-shadow">
+            <div class="w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mx-auto mb-6">
+              <span class="i-mdi-book-open-page-variant text-primary-600 dark:text-primary-400 text-2xl"></span>
             </div>
-            <p class="text-gray-600 dark:text-gray-400 mb-4 italic">
-              "Not only did they build a beautiful website for us, but they also
-              provided valuable insights and suggestions that improved the
-              overall user experience. Highly recommended!"
+            <h3 class="text-xl font-bold mb-4">Reading</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              I enjoy reading books on technology, design, and personal development to continuously improve my skills.
             </p>
-            <div>
-              <h4 class="font-semibold text-gray-900 dark:text-white">
-                Michael Brown
-              </h4>
-              <p class="text-sm text-gray-500 dark:text-gray-500">
-                Founder, Design Agency
-              </p>
-            </div>
           </div>
         </div>
       </div>

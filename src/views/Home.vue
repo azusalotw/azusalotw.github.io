@@ -1,160 +1,125 @@
 <script setup lang="ts">
-import Hero from '@/components/home/Hero.vue'
-import SectionTitle from '@/components/common/SectionTitle.vue'
-import ProjectCard from '@/components/portfolio/ProjectCard.vue'
+import { ref } from 'vue'
+import PortfolioCard from '@/components/PortfolioCard.vue'
 
-// Sample featured projects
-const featuredProjects = [
+// Portfolio highlights for home page
+const portfolioHighlights = ref([
   {
     id: 1,
-    title: 'E-commerce Platform',
-    description: 'A modern e-commerce platform with advanced filtering and cart functionality.',
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg',
-    category: 'Web Development',
-    tags: ['Vue.js', 'Node.js', 'MongoDB'],
-    url: '#'
+    title: 'E-commerce Website',
+    description: 'A fully responsive online store built with Vue and Node.js',
+    image: 'https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg',
+    tags: ['Vue', 'Node.js', 'Express', 'MongoDB'],
+    link: '/portfolio'
   },
   {
     id: 2,
-    title: 'Travel Blog',
-    description: 'Responsive travel blog with dynamic content and image galleries.',
-    image: 'https://images.pexels.com/photos/7625640/pexels-photo-7625640.jpeg',
-    category: 'Web Design',
-    tags: ['Vue.js', 'TailwindCSS', 'Firebase'],
-    url: '#'
+    title: 'Weather Dashboard',
+    description: 'Real-time weather application with location tracking',
+    image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg',
+    tags: ['Vue', 'API Integration', 'Geolocation'],
+    link: '/portfolio'
   },
   {
     id: 3,
-    title: 'Task Management App',
-    description: 'Productivity application for managing tasks and collaborating with teams.',
-    image: 'https://images.pexels.com/photos/6476260/pexels-photo-6476260.jpeg',
-    category: 'Mobile App',
-    tags: ['React Native', 'Redux', 'Firebase'],
-    url: '#'
+    title: 'Portfolio Website',
+    description: 'A modern, responsive portfolio website built with Vue',
+    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg',
+    tags: ['Vue', 'UnoCSS', 'Responsive Design'],
+    link: '/portfolio'
   }
-]
-
-// Services offered
-const services = [
-  {
-    title: 'Web Development',
-    description: 'Creating modern, responsive websites and web applications with the latest technologies.',
-    icon: 'i-carbon-application-web'
-  },
-  {
-    title: 'UI/UX Design',
-    description: 'Designing beautiful user interfaces and experiences that are intuitive and engaging.',
-    icon: 'i-carbon-paint-brush'
-  },
-  {
-    title: 'Mobile Development',
-    description: 'Building cross-platform mobile applications that provide native-like experiences.',
-    icon: 'i-carbon-mobile'
-  },
-  {
-    title: 'Consulting',
-    description: 'Providing expert advice on technical decisions and helping teams implement best practices.',
-    icon: 'i-carbon-chat'
-  }
-]
+])
 </script>
 
 <template>
   <div>
     <!-- Hero Section -->
-    <Hero />
-    
-    <!-- About Section Preview -->
-    <section class="py-20">
+    <section class="relative h-screen flex items-center">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-600/90 to-secondary-600/90 z-0"></div>
+      <div class="absolute inset-0 bg-[url('https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg')] bg-cover bg-center mix-blend-overlay z-0"></div>
+      
+      <div class="container relative z-10 text-white">
+        <div class="max-w-2xl mx-auto md:mx-0">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in" style="animation-delay: 0.3s">
+            Hello, I'm Your Name
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in" style="animation-delay: 0.6s">
+            A passionate web developer creating beautiful and functional digital experiences
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 animate-fade-in" style="animation-delay: 0.9s">
+            <router-link to="/portfolio" class="btn-primary text-center">
+              View My Work
+            </router-link>
+            <router-link to="/contact" class="btn bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-center">
+              Contact Me
+            </router-link>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+        <span class="text-white text-sm mb-2">Scroll Down</span>
+        <div class="w-6 h-6 border-b-2 border-r-2 border-white transform rotate-45"></div>
+      </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="section bg-white dark:bg-gray-800">
       <div class="container">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              About Me
-            </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
-              I'm a passionate web developer and designer with over 5 years of experience creating 
-              digital solutions for clients across various industries.
+        <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
+        
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+          <div class="w-full md:w-2/5">
+            <div class="rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src="https://images.pexels.com/photos/4974915/pexels-photo-4974915.jpeg" 
+                alt="Working on laptop" 
+                class="w-full h-auto" 
+              />
+            </div>
+          </div>
+          
+          <div class="w-full md:w-3/5">
+            <h3 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">
+              Frontend Developer & UI/UX Enthusiast
+            </h3>
+            
+            <p class="mb-6 text-gray-700 dark:text-gray-300">
+              I'm a passionate web developer with a keen eye for design and a commitment to creating 
+              seamless user experiences. With expertise in modern frontend technologies, I build 
+              responsive, accessible, and performant web applications.
             </p>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
-              My approach combines technical expertise with an eye for design, 
-              ensuring that every project not only functions flawlessly but 
-              also provides an exceptional user experience.
-            </p>
+            
+            <div class="flex flex-wrap gap-3 mb-8">
+              <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">Vue.js</span>
+              <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">TypeScript</span>
+              <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">UnoCSS</span>
+              <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">Responsive Design</span>
+              <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">UI/UX</span>
+            </div>
+            
             <router-link to="/about" class="btn-primary">
               Learn More About Me
             </router-link>
           </div>
-          
-          <div class="grid grid-cols-2 gap-4">
-            <div class="card p-5 flex items-center h-32 bg-primary-50 dark:bg-primary-900/20">
-              <div class="text-3xl text-primary-500 dark:text-primary-400 mr-4 i-carbon-code"></div>
-              <div>
-                <h3 class="font-bold text-xl text-gray-900 dark:text-white">50+</h3>
-                <p class="text-gray-600 dark:text-gray-400">Projects Completed</p>
-              </div>
-            </div>
-            <div class="card p-5 flex items-center h-32 bg-secondary-50 dark:bg-secondary-900/20">
-              <div class="text-3xl text-secondary-500 dark:text-secondary-400 mr-4 i-carbon-user-multiple"></div>
-              <div>
-                <h3 class="font-bold text-xl text-gray-900 dark:text-white">30+</h3>
-                <p class="text-gray-600 dark:text-gray-400">Happy Clients</p>
-              </div>
-            </div>
-            <div class="card p-5 flex items-center h-32 bg-accent-50 dark:bg-accent-900/20">
-              <div class="text-3xl text-accent-500 dark:text-accent-400 mr-4 i-carbon-certificate"></div>
-              <div>
-                <h3 class="font-bold text-xl text-gray-900 dark:text-white">5+</h3>
-                <p class="text-gray-600 dark:text-gray-400">Years Experience</p>
-              </div>
-            </div>
-            <div class="card p-5 flex items-center h-32 bg-gray-100 dark:bg-gray-800">
-              <div class="text-3xl text-gray-500 dark:text-gray-400 mr-4 i-carbon-award"></div>
-              <div>
-                <h3 class="font-bold text-xl text-gray-900 dark:text-white">10+</h3>
-                <p class="text-gray-600 dark:text-gray-400">Technologies</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
-    
-    <!-- Services Section -->
-    <section class="py-20 bg-gray-100 dark:bg-gray-800">
+
+    <!-- Portfolio Preview -->
+    <section class="section bg-gray-50 dark:bg-gray-900">
       <div class="container">
-        <SectionTitle 
-          title="My Services" 
-          subtitle="Here are the services I offer to help bring your digital vision to life"
-        />
+        <h2 class="text-3xl font-bold mb-4 text-center">Recent Projects</h2>
+        <p class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+          Here are some of my recent works. Each project presented unique challenges and opportunities for growth.
+        </p>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div 
-            v-for="service in services" 
-            :key="service.title"
-            class="card p-6 hover:shadow-lg transition-shadow duration-300"
-          >
-            <div :class="service.icon" class="text-3xl text-primary-500 dark:text-primary-400 mb-4"></div>
-            <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">{{ service.title }}</h3>
-            <p class="text-gray-600 dark:text-gray-400">{{ service.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Featured Projects -->
-    <section class="py-20">
-      <div class="container">
-        <SectionTitle 
-          title="Featured Projects" 
-          subtitle="A selection of my recent work that showcases my skills and expertise"
-        />
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ProjectCard 
-            v-for="project in featuredProjects" 
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <PortfolioCard 
+            v-for="project in portfolioHighlights" 
             :key="project.id" 
-            :project="project"
+            :project="project" 
           />
         </div>
         
@@ -165,20 +130,36 @@ const services = [
         </div>
       </div>
     </section>
-    
+
     <!-- Contact CTA -->
-    <section class="py-20 bg-primary-50 dark:bg-primary-900/20">
+    <section class="section bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
       <div class="container text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-          Ready to start your project?
-        </h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-          Let's work together to create something amazing. Get in touch and let's discuss how I can help bring your ideas to life.
+        <h2 class="text-3xl font-bold mb-4">Let's Work Together</h2>
+        <p class="mb-8 max-w-2xl mx-auto">
+          I'm currently available for freelance work. If you have a project that needs some creative touch, I'd love to hear about it.
         </p>
-        <router-link to="/contact" class="btn-primary text-lg px-8 py-3">
-          Get in Touch
+        <router-link to="/contact" class="btn bg-white text-primary-600 hover:bg-gray-100">
+          Get In Touch
         </router-link>
       </div>
     </section>
   </div>
 </template>
+
+<style scoped>
+.animate-fade-in {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
