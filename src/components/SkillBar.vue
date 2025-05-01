@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-const props = defineProps<{
+defineProps<{
   skill: {
     name: string;
     level: number;
