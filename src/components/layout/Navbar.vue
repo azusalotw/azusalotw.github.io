@@ -26,7 +26,7 @@ defineEmits<{
       <!-- Logo -->
       <div class="flex items-center ml-2 md:ml-0">
         <router-link to="/" class="text-xl font-bold tracking-tight text-primary-600 dark:text-primary-400">
-          YourName
+          Azusa Lo
         </router-link>
       </div>
       

@@ -8,22 +8,22 @@
       <div class="max-w-4xl mx-auto">
         <!-- Header -->
         <div class="mb-16 text-center">
-          <h1 class="text-4xl md:text-5xl font-bold mb-6">About Me</h1>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">關於我</h1>
           <div class="w-24 h-1 bg-primary-600 mx-auto rounded-full"></div>
         </div>
 
         <!-- Content -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
           <div class="order-2 md:order-1">
-            <h2 class="text-2xl font-bold mb-4">Who I Am</h2>
+            <h2 class="text-2xl font-bold mb-4">我是誰</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-              I'm a passionate web developer based in [Your Location]. I love creating beautiful, accessible, and user-friendly websites.
+              我是 Azusa Lo，一位熱情網頁開發者。我熱愛創造美麗、無障礙且使用者友善的網站。
             </p>
             <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-              With a background in [Your Background], I bring a unique perspective to every project. I'm constantly learning new technologies and best practices to deliver the best possible results.
+              憑藉著豐富的開發背景，我為每個專案帶來獨特的視角。我不斷學習新技術和最佳實踐，以提供最佳成果。
             </p>
             <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-              When I'm not coding, you can find me [Your Hobbies].
+              當我不寫程式時，你會發現我在探索新技術或享受生活。
             </p>
           </div>
           <div class="order-1 md:order-2 flex justify-center">
@@ -41,7 +41,7 @@
 
         <!-- Skills -->
         <div class="mb-20">
-          <h2 class="text-2xl font-bold mb-8 text-center">My Tech Stack</h2>
+          <h2 class="text-2xl font-bold mb-8 text-center">我的技術堆疊</h2>
           <div class="flex flex-wrap justify-center gap-4">
             <span class="px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-700 dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">
               Vue.js

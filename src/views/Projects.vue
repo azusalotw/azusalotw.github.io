@@ -5,8 +5,8 @@ import PortfolioCard from '@/components/PortfolioCard.vue'
 const projects = ref([
   {
     id: 1,
-    title: 'E-commerce Website',
-    description: 'A fully responsive online store built with Vue and Node.js. Features include product filtering, user authentication, cart functionality, and payment processing.',
+    title: '電子商務網站',
+    description: '一個使用 Vue 和 Node.js 構建的完全響應式線上商店。功能包括產品篩選、使用者認證、購物車功能和支付處理。',
     image: 'https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg',
     tags: ['Vue', 'Node.js', 'Express', 'MongoDB'],
     category: 'Web Application',
@@ -14,8 +14,8 @@ const projects = ref([
   },
   {
     id: 2,
-    title: 'Weather Dashboard',
-    description: 'Real-time weather application with location tracking. Users can search for weather by city name or use their current location to get up-to-date weather information.',
+    title: '天氣儀表板',
+    description: '具有位置追蹤功能的即時天氣應用程式。使用者可以按城市名稱搜尋天氣，或使用當前位置獲取最新天氣資訊。',
     image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg',
     tags: ['Vue', 'API Integration', 'Geolocation'],
     category: 'Web Application',
@@ -23,8 +23,8 @@ const projects = ref([
   },
   {
     id: 3,
-    title: 'Personal Website',
-    description: 'A modern, responsive personal website built with Vue and UnoCSS. Features smooth transitions, dark mode toggle, and fully responsive design.',
+    title: '個人網站',
+    description: '使用 Vue 和 UnoCSS 構建的現代響應式個人網站。具有流暢的過渡效果、深色模式切換和完全響應式設計。',
     image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg',
     tags: ['Vue', 'UnoCSS', 'Responsive Design'],
     category: 'Website',
@@ -32,8 +32,8 @@ const projects = ref([
   },
   {
     id: 4,
-    title: 'Task Management App',
-    description: 'A productivity application for managing tasks and projects. Features include drag and drop functionality, task prioritization, and due date reminders.',
+    title: '任務管理應用程式',
+    description: '用於管理任務和專案的生產力應用程式。功能包括拖放功能、任務優先順序和截止日期提醒。',
     image: 'https://images.pexels.com/photos/6956/snow-trees-forest-winter.jpg',
     tags: ['Vue', 'Vuex', 'Firebase'],
     category: 'Web Application',
@@ -41,8 +41,8 @@ const projects = ref([
   },
   {
     id: 5,
-    title: 'Restaurant Landing Page',
-    description: 'A modern landing page for a restaurant with menu display, reservation form, and location map integration.',
+    title: '餐廳登陸頁面',
+    description: '現代化的餐廳登陸頁面，包含菜單展示、預訂表單和位置地圖整合。',
     image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg',
     tags: ['HTML', 'CSS', 'JavaScript'],
     category: 'Website',
@@ -50,8 +50,8 @@ const projects = ref([
   },
   {
     id: 6,
-    title: 'Music Streaming App',
-    description: 'A web-based music streaming application with playlist creation, music discovery, and social sharing features.',
+    title: '音樂串流應用程式',
+    description: '具有播放清單建立、音樂探索和社交分享功能的網頁版音樂串流應用程式。',
     image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg',
     tags: ['Vue', 'Node.js', 'MongoDB', 'WebAudio API'],
     category: 'Web Application',
@@ -61,13 +61,13 @@ const projects = ref([
 
 const categories = computed(() => {
   const allCategories = projects.value.map(project => project.category)
-  return ['All', ...new Set(allCategories)]
+  return ['全部', ...new Set(allCategories)]
 })
 
-const selectedCategory = ref('All')
+const selectedCategory = ref('全部')
 
 const filteredProjects = computed(() => {
-  if (selectedCategory.value === 'All') {
+  if (selectedCategory.value === '全部') {
     return projects.value
   }
   return projects.value.filter(project => project.category === selectedCategory.value)
@@ -79,9 +79,9 @@ const filteredProjects = computed(() => {
     <!-- Header -->
     <section class="py-24 bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
       <div class="container">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">My Projects</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">我的專案</h1>
         <p class="text-xl opacity-90 max-w-2xl">
-          A showcase of my work. Each project represents a unique challenge and solution.
+          我的作品展示。每個專案都代表著獨特的挑戰和解決方案。
         </p>
       </div>
     </section>
@@ -118,7 +118,7 @@ const filteredProjects = computed(() => {
         <!-- No Results -->
         <div v-if="filteredProjects.length === 0" class="text-center py-12">
           <p class="text-xl text-gray-600 dark:text-gray-400">
-            No projects found in this category.
+            在此分類中找不到專案。
           </p>
         </div>
       </div>
@@ -127,12 +127,12 @@ const filteredProjects = computed(() => {
     <!-- Call to Action -->
     <section class="section bg-gray-50 dark:bg-gray-900">
       <div class="container text-center">
-        <h2 class="text-3xl font-bold mb-6">Interested in working together?</h2>
+        <h2 class="text-3xl font-bold mb-6">有興趣合作嗎？</h2>
         <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-          I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+          我隨時歡迎討論新專案、創意點子或參與您願景的機會。
         </p>
         <a href="mailto:contact@example.com" class="btn-primary">
-          Get In Touch
+          聯絡我
         </a>
       </div>
     </section>

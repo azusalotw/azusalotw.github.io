@@ -8,7 +8,7 @@ const routes: RouteRecordRaw[] = [
     name: 'Home',
     component: Home,
     meta: {
-      title: 'Home',
+      title: '首頁',
       icon: 'i-mdi-home'
     }
   },
@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
     name: 'About',
     component: About,
     meta: {
-      title: 'About Me',
+      title: '關於我',
       icon: 'i-mdi-account'
     }
   },
@@ -26,7 +26,7 @@ const routes: RouteRecordRaw[] = [
     name: 'Projects',
     component: () => import('@/views/Projects.vue'),
     meta: {
-      title: 'Projects',
+      title: '專案列表',
       icon: 'i-mdi-briefcase'
     }
   }

@@ -4,7 +4,7 @@
       <div class="flex flex-col md:flex-row items-center justify-between">
         <div class="mb-4 md:mb-0">
           <p class="text-gray-600 dark:text-gray-400">
-            &copy; {{ new Date().getFullYear() }} Your Name. All rights reserved.
+            &copy; {{ new Date().getFullYear() }} Azusa Lo. 版權所有。
           </p>
         </div>
         

@@ -43,8 +43,8 @@ const route = useRoute()
           <div class="w-24 h-24 rounded-full bg-primary-100 dark:bg-primary-900 mb-4 overflow-hidden">
             <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" alt="Profile" class="w-full h-full object-cover" />
           </div>
-          <h2 class="text-xl font-bold">Your Name</h2>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Web Developer</p>
+          <h2 class="text-xl font-bold">Azusa Lo</h2>
+          <p class="text-sm text-gray-600 dark:text-gray-400">網頁開發者</p>
         </div>
         
         <!-- Nav links -->
