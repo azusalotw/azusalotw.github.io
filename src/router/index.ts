@@ -29,6 +29,15 @@ const routes: RouteRecordRaw[] = [
       title: '專案列表',
       icon: 'i-mdi-briefcase'
     }
+  },
+  {
+    path: '/contract-bridge',
+    name: 'ContractBridge',
+    component: () => import('@/views/ContractBridge.vue'),
+    meta: {
+      title: '橋牌教學',
+      icon: 'i-mdi-cards-playing-outline'
+    }
   }
 ]
 

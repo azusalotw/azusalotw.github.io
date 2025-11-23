@@ -5,57 +5,13 @@ import PortfolioCard from '@/components/PortfolioCard.vue'
 const projects = ref([
   {
     id: 1,
-    title: '電子商務網站',
-    description: '一個使用 Vue 和 Node.js 構建的完全響應式線上商店。功能包括產品篩選、使用者認證、購物車功能和支付處理。',
-    image: 'https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg',
-    tags: ['Vue', 'Node.js', 'Express', 'MongoDB'],
+    title: '橋牌教學網',
+    description: '一個專為初學者設計的橋牌教學網站，從基礎規則到進階叫牌技巧，帶領你進入橋牌的奧妙世界。',
+    image: 'https://images.pexels.com/photos/279009/pexels-photo-279009.jpeg',
+    tags: ['Vue', 'Bridge', 'Tutorial'],
     category: 'Web Application',
-    link: '#'
-  },
-  {
-    id: 2,
-    title: '天氣儀表板',
-    description: '具有位置追蹤功能的即時天氣應用程式。使用者可以按城市名稱搜尋天氣，或使用當前位置獲取最新天氣資訊。',
-    image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg',
-    tags: ['Vue', 'API Integration', 'Geolocation'],
-    category: 'Web Application',
-    link: '#'
-  },
-  {
-    id: 3,
-    title: '個人網站',
-    description: '使用 Vue 和 UnoCSS 構建的現代響應式個人網站。具有流暢的過渡效果、深色模式切換和完全響應式設計。',
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg',
-    tags: ['Vue', 'UnoCSS', 'Responsive Design'],
-    category: 'Website',
-    link: '#'
-  },
-  {
-    id: 4,
-    title: '任務管理應用程式',
-    description: '用於管理任務和專案的生產力應用程式。功能包括拖放功能、任務優先順序和截止日期提醒。',
-    image: 'https://images.pexels.com/photos/6956/snow-trees-forest-winter.jpg',
-    tags: ['Vue', 'Vuex', 'Firebase'],
-    category: 'Web Application',
-    link: '#'
-  },
-  {
-    id: 5,
-    title: '餐廳登陸頁面',
-    description: '現代化的餐廳登陸頁面，包含菜單展示、預訂表單和位置地圖整合。',
-    image: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-    category: 'Website',
-    link: '#'
-  },
-  {
-    id: 6,
-    title: '音樂串流應用程式',
-    description: '具有播放清單建立、音樂探索和社交分享功能的網頁版音樂串流應用程式。',
-    image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg',
-    tags: ['Vue', 'Node.js', 'MongoDB', 'WebAudio API'],
-    category: 'Web Application',
-    link: '#'
+    link: '/contract-bridge',
+    isInternal: true
   }
 ])
 

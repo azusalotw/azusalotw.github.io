@@ -18,7 +18,7 @@ const navigateToProjects = () => {
             你好，我是 <span class="text-primary-600 dark:text-primary-400">Azusa Lo</span>
           </h1>
           <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-100">
-            一位熱愛創造美麗且實用網頁體驗的開發者。
+            任職於中興工程顧問股份有限公司的結構工程師，專注於大眾運輸地下車站結構設計與自動化程式開發。
           </p>
           <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up delay-200">
             <button 
@@ -46,27 +46,27 @@ const navigateToProjects = () => {
             <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center mb-4 text-2xl">
               <div class="i-mdi-monitor"></div>
             </div>
-            <h3 class="text-xl font-bold mb-2">前端開發</h3>
+            <h3 class="text-xl font-bold mb-2">結構設計</h3>
             <p class="text-gray-600 dark:text-gray-400">
-              使用現代框架構建響應式、無障礙且高效能的使用者介面。
+              擅長鋼結構與 RC 結構設計，特別是大眾運輸地下車站的結構規劃與分析。
             </p>
           </div>
           <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
             <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-xl flex items-center justify-center mb-4 text-2xl">
               <div class="i-mdi-server"></div>
             </div>
-            <h3 class="text-xl font-bold mb-2">後端整合</h3>
+            <h3 class="text-xl font-bold mb-2">自動化開發</h3>
             <p class="text-gray-600 dark:text-gray-400">
-              連接前端與穩健的後端系統和 API，提供動態內容。
+              運用 C# 與 Python 撰寫自動化程式，提升設計效率與維護工作流程。
             </p>
           </div>
           <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
             <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center mb-4 text-2xl">
               <div class="i-mdi-palette"></div>
             </div>
-            <h3 class="text-xl font-bold mb-2">UI/UX 設計</h3>
+            <h3 class="text-xl font-bold mb-2">有限元素分析</h3>
             <p class="text-gray-600 dark:text-gray-400">
-              創造直觀且視覺吸引人的設計，提升使用者體驗。
+              熟練使用 SAP2000、ETABS 與 ABAQUS 進行複雜結構的有限元素分析。
             </p>
           </div>
         </div>

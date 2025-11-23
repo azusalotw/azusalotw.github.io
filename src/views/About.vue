@@ -17,13 +17,13 @@
           <div class="order-2 md:order-1">
             <h2 class="text-2xl font-bold mb-4">我是誰</h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-              我是 Azusa Lo，一位熱情網頁開發者。我熱愛創造美麗、無障礙且使用者友善的網站。
+              我是 Azusa Lo，目前任職於中興工程顧問股份有限公司，擔任結構工程師。我的工作內容主要涵蓋大眾運輸的地下車站結構設計，以及結構分析自動化程式的撰寫與維護。
             </p>
             <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-              憑藉著豐富的開發背景，我為每個專案帶來獨特的視角。我不斷學習新技術和最佳實踐，以提供最佳成果。
+              我擁有台灣大學土木工程學系結構工程組碩士學位，以及森林環境暨資源學系學士學位（輔修土木工程）。在學術與實務經驗中，我累積了深厚的結構力學基礎與程式開發能力。
             </p>
             <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-              當我不寫程式時，你會發現我在探索新技術或享受生活。
+              工作之餘，我的興趣是打橋牌。這項智力運動培養了我的邏輯思考與策略規劃能力，也讓我更能冷靜面對複雜的工程挑戰。
             </p>
           </div>
           <div class="order-1 md:order-2 flex justify-center">
@@ -39,27 +39,51 @@
           </div>
         </div>
 
+        <!-- Education -->
+        <div class="mb-20">
+          <h2 class="text-2xl font-bold mb-8 text-center">學歷</h2>
+          <div class="space-y-6 max-w-3xl mx-auto">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <h3 class="text-xl font-bold mb-2">國立台灣大學 土木工程學系 結構工程組</h3>
+              <p class="text-primary-600 dark:text-primary-400 font-medium mb-2">碩士 (MSc)</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <h3 class="text-xl font-bold mb-2">國立台灣大學 森林環境暨資源學系</h3>
+              <p class="text-primary-600 dark:text-primary-400 font-medium mb-2">學士 (BSc) - 輔修土木工程學系</p>
+            </div>
+          </div>
+        </div>
+
         <!-- Skills -->
         <div class="mb-20">
           <h2 class="text-2xl font-bold mb-8 text-center">我的技術堆疊</h2>
           <div class="flex flex-wrap justify-center gap-4">
             <span class="px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-700 dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">
-              Vue.js
+              SAP2000
             </span>
             <span class="px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-700 dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">
-              TypeScript
+              ETABS
             </span>
             <span class="px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-700 dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">
-              UnoCSS
+              ABAQUS
             </span>
             <span class="px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-700 dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">
-              Node.js
+              AutoCAD
             </span>
             <span class="px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-700 dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">
-              Git
+              REVIT
             </span>
              <span class="px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-700 dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">
-              HTML5 & CSS3
+              C#
+            </span>
+            <span class="px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-700 dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">
+              Python
+            </span>
+            <span class="px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-700 dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">
+              鋼結構設計
+            </span>
+            <span class="px-6 py-3 bg-white dark:bg-gray-800 rounded-full shadow-sm text-gray-700 dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">
+              RC結構設計
             </span>
           </div>
         </div>
