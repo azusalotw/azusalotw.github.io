@@ -1,9 +1,6 @@
-import { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
-import Portfolio from '@/views/Portfolio.vue'
-import Skills from '@/views/Skills.vue'
-import Contact from '@/views/Contact.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -25,32 +22,19 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
-    path: '/portfolio',
-    name: 'Portfolio',
-    component: Portfolio,
+    path: '/projects',
+    name: 'Projects',
+    component: () => import('@/views/Projects.vue'),
     meta: {
-      title: 'Portfolio',
+      title: 'Projects',
       icon: 'i-mdi-briefcase'
-    }
-  },
-  {
-    path: '/skills',
-    name: 'Skills',
-    component: Skills,
-    meta: {
-      title: 'Skills',
-      icon: 'i-mdi-code-tags'
-    }
-  },
-  {
-    path: '/contact',
-    name: 'Contact',
-    component: Contact,
-    meta: {
-      title: 'Contact',
-      icon: 'i-mdi-email'
     }
   }
 ]
 
-export default routes
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
+
+export default router

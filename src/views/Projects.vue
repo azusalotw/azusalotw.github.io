@@ -23,8 +23,8 @@ const projects = ref([
   },
   {
     id: 3,
-    title: 'Portfolio Website',
-    description: 'A modern, responsive portfolio website built with Vue and UnoCSS. Features smooth transitions, dark mode toggle, and fully responsive design.',
+    title: 'Personal Website',
+    description: 'A modern, responsive personal website built with Vue and UnoCSS. Features smooth transitions, dark mode toggle, and fully responsive design.',
     image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg',
     tags: ['Vue', 'UnoCSS', 'Responsive Design'],
     category: 'Website',
@@ -79,14 +79,14 @@ const filteredProjects = computed(() => {
     <!-- Header -->
     <section class="py-24 bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
       <div class="container">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">My Portfolio</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">My Projects</h1>
         <p class="text-xl opacity-90 max-w-2xl">
-          A showcase of my web development projects. Each project represents a unique challenge and solution.
+          A showcase of my work. Each project represents a unique challenge and solution.
         </p>
       </div>
     </section>
     
-    <!-- Portfolio Grid -->
+    <!-- Projects Grid -->
     <section class="section">
       <div class="container">
         <!-- Category Filter -->
@@ -131,9 +131,9 @@ const filteredProjects = computed(() => {
         <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
           I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
         </p>
-        <router-link to="/contact" class="btn-primary">
+        <a href="mailto:contact@example.com" class="btn-primary">
           Get In Touch
-        </router-link>
+        </a>
       </div>
     </section>
   </div>

@@ -82,5 +82,8 @@ export default defineConfig({
     'i-mdi-github',
     'i-mdi-linkedin',
     'i-mdi-twitter',
+    'i-mdi-monitor',
+    'i-mdi-server',
+    'i-mdi-palette',
   ],
 })
